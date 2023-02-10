@@ -1,0 +1,29 @@
+/* basic reset
+==============
+*/
+@import 'normalize';
+
+body {
+  color: #fafafa;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* file includes
+================
+*/

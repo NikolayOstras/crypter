@@ -1,0 +1,263 @@
+* ======================================== *
+* MODAL WINDOWS
+* ======================================== *
+<div class="modal" id="modal">
+   <div class="modal__body">
+      <div class="modal__content">
+         <a href="#anchor" data-close class="modal__close">X</a>
+         <div class="modal__title">
+            modal title
+         </div>
+         <div class="modal__text">
+            modal text
+         </div>
+      </div>
+   </div>
+</div>
+#modal.modal
+.modal__body
+.modal__content
+a.modal__close(href='#anchor', data-close='') X
+.modal__title
+| modal title
+.modal__text
+| modal text
+button.openButton open modal
+const modal = new Modal('#modal', '.openButton')
+=====OLD=====
+
+=====MICROMODAL=====
+<!-- [1] -->
+<div id="modal-1" aria-hidden="true">
+
+  <!-- [2] -->
+  <div tabindex="-1" data-micromodal-close>
+
+    <!-- [3] -->
+    <div role="dialog" aria-modal="true" aria-labelledby="modal-1-title" >
+
+
+      <header>
+        <h2 id="modal-1-title">
+          Modal Title
+        </h2>
+
+        <!-- [4] -->
+        <button aria-label="Close modal" data-micromodal-close></button>
+      </header>
+
+      <div id="modal-1-content">
+        Modal Content
+      </div>
+
+    </div>
+  </div>
+</div>
+data-micromodal-trigger="modal-1"
+import MicroModal from 'micromodal';
+MicroModal.init();
+
+* ======================================== *
+* TABS
+* ======================================== *
+
+<div class="tabs" data-tabs="tab">
+   <ul class="tabs__nav">
+      <li class="tabs__nav-item"><button class="tabs__nav-btn tabs__nav-btn--active">1</button></li>
+      <li class="tabs__nav-item"><button class="tabs__nav-btn">2</button></li>
+      <li class="tabs__nav-item"><button class="tabs__nav-btn">3</button></li>
+   </ul>
+   <div class="tabs__conent">
+      <div class="tabs__panel tabs__panel--active">1 content</div>
+      <div class="tabs__panel">2 content</div>
+      <div class="tabs__panel">3 content</div>
+   </div>
+</div>
+
+*PUG
+
+.tabs(data-tabs='tab')
+ul.tabs__nav
+li.tabs__nav-item
+button.tabs__nav-btn.tabs__nav-btn--active 1
+li.tabs__nav-item
+button.tabs__nav-btn 2
+li.tabs__nav-item
+button.tabs__nav-btn 3
+.tabs__conent
+.tabs__panel.tabs__panel--active 1 content
+.tabs__panel 2 content
+.tabs__panel 3 content
+
+*JS
+
+const tabs1 = new Tabs('tab' , {isChanged: () => { function when switch tab}})
+
+*CSS
+
+.tabs__panel {
+display: none;
+}
+.tabs__panel--active {
+display: block;
+}
+.tabs__nav-btn--active {
+background-color:lightgray;
+}
+.tabs__nav-btn {
+cursor: pointer;
+}
+.tabs__nav-btn:focus {
+background-color: dodgerblue;
+color: white;
+}
+.tabs__nav {
+display: flex;
+list-style-type: none;
+}
+
+* ======================================== *
+* ACCORDION | SPOILERS
+* ======================================== *
+<div class="accordion accordion-1">
+   <button class="accordion__control" aria-expanded="false">
+      <span class="accordion__title">Accordion 1</span>
+      <span class="accordion__icon"></span>
+   </button>
+   <div class="accordion__content" aria-hidden="true">
+      <h3>Lorem ipsum dolor sit amet.</h3>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, harum!</p>
+   </div>
+
+</div>
+<div class="accordion accordion-2">
+   <button class="accordion__control" aria-expanded="false">
+      <span class="accordion__title">Accordion 1</span>
+      <span class="accordion__icon"></span>
+   </button>
+   <div class="accordion__content" aria-hidden="true">
+      <h3>Lorem ipsum dolor sit amet.</h3>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, harum!</p>
+   </div>
+</div>
+
+*PUG
+
+.accordion.accordion-1
+button.accordion__control(aria-expanded='false')
+span.accordion__title Accordion 1
+span.accordion__icon
+.accordion__content(aria-hidden='true')
+h3 Lorem ipsum dolor sit amet.
+p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, harum!
+.accordion.accordion-2
+button.accordion__control(aria-expanded='false')
+span.accordion__title Accordion 1
+span.accordion__icon
+.accordion__content(aria-hidden='true')
+h3 Lorem ipsum dolor sit amet.
+p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, harum!
+
+const accordion1 = new Accordion ('.accordion-1', {
+speed: 500, - set animation speed
+isOpen: (accordion) => {
+//console.log(accordion)
+},
+isClose: (accordion) => {
+//console.log(accordion)
+},
+spoilers: false - if need leave all instances opened , set true
+})
+const accordion2 = new Accordion ('.accordion-2',{})
+
+*CSS
+
+.accordion {
+--accordion-time: 0.3s;
+}
+
+.content {
+max-width: 1000px;
+margin: 0 auto;
+}
+
+.accordion__control {
+width: 100%;
+background-color: transparent;
+cursor: pointer;
+}
+
+.accordion__content {
+max-height: 0;
+opacity: 0;
+overflow: hidden;
+padding: 0 20px;
+will-change: max-height;
+transition: all var(--accordion-time) ease-out;
+box-sizing: content-box;
+}
+
+.accordion__title {
+font-weight: bold;
+font-size: 1.17em;
+}
+
+.accordion__icon {
+transition: transform var(--accordion-time) ease-out;
+}
+
+.is-open .accordion__icon {
+transform: rotate(45deg);
+}
+
+.is-open .accordion__content {
+opacity: 1;
+padding: 20px;
+}
+
+* ======================================== *
+* SELECT
+* ======================================== *
+<div class="dropdown">
+   <button class="dropdown__button">ALL</button>
+   <ul class="dropdown__list">
+      <li class="dropdown__list-item" data-value="all">ALL</li>
+      <li class="dropdown__list-item" data-value="1">1</li>
+      <li class="dropdown__list-item" data-value="2">2</li>
+      <li class="dropdown__list-item" data-value="3">3</li>
+   </ul>
+   <input type="text" name="select-category" value="" class="dropdown__input--hidden">
+   <div class="dropdown__filter">
+      <ul>
+         <li filter="1">1</li>
+         <li filter="2">2</li>
+         <li filter="2">2</li>
+         <li filter="3">3</li>
+         <li filter="2">2</li>
+         <li filter="1">1</li>
+      </ul>
+   </div>
+</div>
+
+*PUG
+.dropdown
+   button.dropdown__button ALL
+   ul.dropdown__list
+      li.dropdown__list-item(data-value='all') ALL
+      li.dropdown__list-item(data-value='1') 1
+      li.dropdown__list-item(data-value='2') 2
+      li.dropdown__list-item(data-value='3') 3
+input.dropdown__input--hidden(type='text', name='select-category', value='')
+.dropdown__filter
+ul
+li(filter='1') 1
+li(filter='2') 2
+li(filter='2') 2
+li(filter='3') 3
+li(filter='2') 2
+li(filter='1') 1
+
+select('.dropdown' , true) //custom select.true if need filter
+filter value and data-value must be the same
+
+*CSS
