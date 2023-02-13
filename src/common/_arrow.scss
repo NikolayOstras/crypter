@@ -1,0 +1,19 @@
+.arrow {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: var(--neutral-4);
+
+  &:hover {
+    transform: rotate(180deg);
+  }
+
+  &--disabled {
+    color: var(--neutral-6);
+    transform: rotate(180deg);
+
+    &:hover {
+      transform: none;
+    }
+  }
+}

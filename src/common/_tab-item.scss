@@ -1,0 +1,57 @@
+.tab-item {
+  border: none;
+  padding: 6px 12px;
+  background-color: transparent;
+  border-radius: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  & span {
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--neutral-4);
+
+    transition: color .3s ease-in-out;
+  }
+
+  &:hover {
+    & span {
+      color: var(--neutral-2);
+    }
+  }
+
+  &--active {
+    background-color: var(--neutral-3);
+
+    & span {
+      color: var(--neutral-8);
+    }
+
+    &:hover {
+      & span {
+        color: var(--neutral-8);
+      }
+    }
+  }
+
+  &--deactive {
+    & span {
+      color: var(--neutral-5);
+    }
+
+    &:hover {
+      & span {
+        color: var(--neutral-5);
+      }
+    }
+  }
+
+  &--icon-active {
+    & span {
+      color: var(--neutral-2);
+    }
+  }
+}

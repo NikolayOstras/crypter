@@ -1,0 +1,9 @@
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: var(--neutral-6);
+
+  &--xl {
+    height: 2px;
+  }
+}

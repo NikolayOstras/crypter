@@ -1,0 +1,103 @@
+//- logo
+mixin logo
+  a.logo(href="#") 
+    span.logo__img
+    span.logo__title crypter
+mixin logo-vertical
+  a.logo.logo--vertical(href="#") 
+    span.logo__img
+    span.logo__title crypter
+mixin logo-symbol
+  a.logo.logo--symbol(href="#") 
+    span.logo__img
+
+//- buttons
+mixin button(text)
+  button.button&attributes(attributes)
+    span= text
+mixin button-icon(text,icon)
+  button.button&attributes(attributes)
+    span.material-icons= icon
+    span= text
+mixin button-circle(icon)
+  button.button-circle&attributes(attributes)
+    span.material-icons= icon
+
+//- label
+mixin label(text)
+  .label&attributes(attributes)= text 
+
+//- arrows
+mixin arrow 
+  button.arrow&attributes(attributes) 
+    span.material-icons arrow_back
+
+//- burger
+mixin burger 
+  button.burger&attributes(attributes) 
+
+//- dividers
+mixin divider
+  .divider&attributes(attributes) 
+
+//- tab items
+mixin tab-item(text)
+  button.tab-item&attributes(attributes) 
+    span= text
+mixin tab-item--icon(text,icon)
+  button.tab-item&attributes(attributes) 
+    span.material-icons.tab-item__icon= icon
+    span= text
+
+//- services
+mixin service(icon, name)
+  button.service&attributes(attributes) 
+    span.material-icons= icon 
+    span.service__name= name 
+    span.material-icons chevron_right
+
+//- inputs
+mixin single-input
+  .single-input__wrapper 
+    input.single-input(type="email" placeholder="Enter your email")&attributes(attributes) 
+    span.material-icons.single-input__icon arrow_forward
+    span.material-icons.single-input__icon.single-input__icon--send autorenew
+    span.single-input__error Email is incorrect.
+    button.single-input__clear 
+      span.material-icons close
+mixin input--email 
+  .input__wrapper 
+    input.input(type="email" placeholder="Enter your email")&attributes(attributes) 
+    span.material-icons.input__check check
+    button.input__clear 
+      span.material-icons close
+mixin input
+  .input__wrapper 
+    input.input(type="text" placeholder="Input caption")&attributes(attributes) 
+    span.material-icons.input__check check
+    button.input__clear 
+      span.material-icons close
+mixin search
+  .search__wrapper 
+    input.search(type="text" placeholder="Search everything")&attributes(attributes) 
+    button.search__button 
+      span.material-icons search
+
+//- toggle
+mixin toggle-1(number, title , text)
+  .toggle.toggle__wrapper&attributes(attributes)  
+    button.toggle__button
+      .toggle__number= number
+      .toggle__title= title
+      .toggle__icon 
+        span.material-icons expand_more
+    p.toggle__body= text
+mixin toggle-2(number, title , text)
+  .toggle.toggle__wrapper&attributes(attributes)  
+    button.toggle__button
+      .toggle__number= number
+      .toggle__title= title
+      .toggle__icon-2 
+    p.toggle__body= text
+
+//- navigation

@@ -1,0 +1,32 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 126px;
+  color: var(--neutral-2);
+
+  &__img {
+    display: inline-block;
+
+    width: 32px;
+    height: 32px;
+    background-image: url('../img/logo.png');
+    background-position: 44% 53%;
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+  }
+
+  &--vertical {
+    flex-direction: column;
+    width: 86px;
+  }
+
+  &--symbol {
+    width: 32px;
+    height: 32px;
+  }
+}

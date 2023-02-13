@@ -1,0 +1,27 @@
+.service {
+  background-color: var(--neutral-8);
+  border: 1px solid transparent;
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 25px 20px 20px;
+  min-width: 372px;
+
+  transition: border .3s ease-in-out;
+
+  &:hover {
+    border: 1px solid var(--neutral-4);
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 24px;
+    font-size: 32px;
+  }
+
+  &--active {
+    background-color: var(--neutral-7);
+  }
+}

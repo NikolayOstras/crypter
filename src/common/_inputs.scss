@@ -1,0 +1,292 @@
+.single-input {
+  min-width: 256px;
+  // min-height: 48px;
+  padding: 8px 8px 8px 16px;
+  background-color: transparent;
+  border: 2px solid var(--neutral-6);
+  border-radius: 90px;
+
+  font-size: 14px;
+  line-height: 24px;
+
+  padding-right: 40px;
+
+  transition: .3s ease-in-out;
+
+  &::placeholder {
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--neutral-4);
+  }
+
+  &__wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  &__icon {
+    color: var(--neutral-8);
+    background-color: var(--primary-1);
+    font-size: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 8px;
+    top: 8px;
+
+    &--send {
+      animation-name: rotate;
+      animation-iteration-count: infinite;
+      animation-duration: 2s;
+      will-change: transform;
+
+
+      display: none;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 16px;
+
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 600;
+
+    &::placeholder {
+      color: var(--primary-3);
+    }
+
+    display: none;
+  }
+
+  &__clear {
+    position: absolute;
+    top: calc(50%);
+    transform: translateY(-50%);
+    right: 58px;
+    background-color: transparent;
+    color: var(--neutral-4);
+    border: none;
+
+    display: none;
+  }
+
+  // states
+
+  &--send {
+    &~.single-input__icon--send {
+      display: flex;
+    }
+  }
+
+  &--error {
+    &~.single-input__error {
+      display: initial;
+    }
+
+    &~.single-input__clear {
+      display: initial;
+    }
+
+    &~.single-input__icon {
+      background-color: var(--neutral-5);
+    }
+  }
+
+  &--success {
+    border-color: var(--primary-4);
+
+    &~.single-input__icon {
+      background-color: var(--primary-4);
+    }
+  }
+
+  &:hover {
+    &::placeholder {
+      color: var(--neutral-3);
+    }
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateZ(0)
+  }
+
+  to {
+    transform: rotateZ(360deg)
+  }
+}
+
+/* inputs
+=========
+*/
+
+.input {
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+
+  border: 2px solid var(--neutral-6);
+  border-radius: 12px;
+
+  &::placeholder {
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--neutral-4);
+  }
+
+  &__wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  &__check {
+    position: absolute;
+    color: var(--neutral-4);
+    font-size: 14px;
+    top: 50%;
+    right: 21px;
+    transform: translateY(-50%);
+
+    display: none;
+  }
+
+  &__clear {
+    position: absolute;
+    top: 50%;
+    right: 21px;
+    transform: translateY(-50%);
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--neutral-5);
+    color: var(--neutral-8);
+    border: none;
+
+    display: none;
+
+    & span {
+      font-size: 14px;
+    }
+  }
+
+  // states
+
+  &--success {
+    border-color: var(--primary-4);
+
+    &~.input__check {
+      display: initial;
+    }
+  }
+
+  &--error {
+    border-color: var(--primary-3);
+
+    &::placeholder {
+      color: var(--primary-3);
+    }
+
+    &~.input__clear {
+      display: flex;
+    }
+  }
+
+  &:hover {
+    &::placeholder {
+      color: var(--neutral-3);
+    }
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-1);
+  }
+
+}
+
+/* search
+=========
+*/
+
+.search {
+  padding: 8px 8px 8px 16px;
+  border: 2px solid var(--neutral-6);
+  border-radius: 12px;
+  padding-right: 40px;
+  outline: none;
+
+  font-size: 14px;
+  line-height: 24px;
+
+  color: var(--neutral-2);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity .3s ease-in-out;
+
+  &__wrapper {
+    display: inline-block;
+    position: relative;
+  }
+
+  &__button {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+
+    width: 32px;
+    height: 32px;
+
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--neutral-4);
+
+    & span {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+
+    &~.search__button {
+      background-color: var(--primary-1);
+      color: var(--neutral-8);
+
+      & span {
+        font-weight: 400;
+      }
+    }
+  }
+}

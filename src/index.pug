@@ -1,6 +1,99 @@
 extends pug/layout.pug
 block content
-  h1 hello world
-  +icon('icon')
+  .container 
+    h2 logo
+    .flex 
+      +logo
+      +logo-vertical
+      +logo-symbol
+    h2 buttons 
+    .flex 
+      +button("Button")
+      +button-icon("Button","star")
+      +button-icon("Button","star")(class="button--reversed")
+    h4 disabled
+    .flex 
+      +button("Button")(class="button--disabled")
+      +button-icon("Button","star")(class="button--disabled")
+      +button-icon("Button","star")(class="button--disabled button--reversed")
+    h4 small 
+    .flex 
+      +button("Button")(class="button--sm")
+      +button-icon("Button","star")(class="button--sm")
+      +button-icon("Button","star")(class="button--sm button--reversed")
+    h4 light 
+    .flex 
+      +button("Button")(class="button--light")
+      +button-icon("Button","star")(class="button--light")
+      +button-icon("Button","star")(class="button--light button--reversed")
+    h4 disabled
+    .flex 
+      +button("Button")(class="button--light button--disabled")
+      +button-icon("Button","star")(class="button--light button--disabled")
+      +button-icon("Button","star")(class="button--light button--reversed button--disabled")
+    h4 circle button
+    .flex 
+      +button-circle("play_arrow")
+      +button-circle("play_arrow")(class="button-circle--sm")
+    h2 label
+    .flex 
+      +label("default")
+      +label("popular")(class="label--popular")
+      +label("new")(class="label--new")
+      +label("featured")(class="label--featured")
+    h4 ghost
+    .flex 
+      +label("default")(class="label--ghost")
+      +label("popular")(class="label--ghost-popular")
+      +label("new")(class="label--ghost-new")
+      +label("featured")(class="label--ghost-featured")
+    h2 arrows
+    .flex 
+      +arrow 
+      +arrow(class="arrow--disabled")
+    h2 burger
+    +burger
+    +burger(class="is-active")
+    h2 dividers 
+    .flex 
+      +divider
+      +divider(class="divider--xl")
+    h2 sub-nav tab items 
+    .flex
+      +tab-item("General")(class="tab-item--active")
+      +tab-item("Default")
+      +tab-item("Deactive")(class="tab-item--deactive")
+      +tab-item--icon("Support" , "help")
+      +tab-item--icon("Support" , "help")(class="tab-item--icon-active")
+    h2 services 
+    .flex 
+      +service("brush", "Illustrations")
+      +service("view_quilt", "UI Design")(class="service--active")
+    h2 input field 
+    h4 single input
+    .flex
+      +single-input(id="email")
+      +single-input(class="single-input--error")
+      +single-input(class="single-input--send")
+      +single-input(class="single-input--success")
+    h4 input 
+    .flex
+      +input--email 
+      +input--email(class="input--success") 
+      +input--email(class="input--error") 
+      +input 
+      +input(class="input--success") 
+      +input(class="input--error") 
+    h4 search 
+    .flex 
+    +search
+    +search(class="is-active")
+    h2 toggle
+    .flex
+      +toggle-1("01" , "How does it work?" , "Stacks is a production-ready library of stackable content blocks built in React Native.")
+      +toggle-1("01" , "How does it work?" , "Stacks is a production-ready library of stackable content blocks built in React Native.")(class="is-active")
+    .flex
+      +toggle-2("01" , "How does it work?" , "Stacks is a production-ready library of stackable content blocks built in React Native.")
+      +toggle-2("01" , "How does it work?" , "Stacks is a production-ready library of stackable content blocks built in React Native.")(class="is-active")
 block scripts
   script(src="./js/app.js") 

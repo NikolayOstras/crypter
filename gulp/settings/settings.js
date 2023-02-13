@@ -10,7 +10,7 @@ export const path = {
         html: './src/*.pug',
         img: './src/img/**/*.{jpg,jpeg,png,gif}',
         scss: './src/scss/style.scss',
-        components: './src/components/**/*.js',
+        components: './src/common/**/*.js',
         js: './src/js/app.js',
         jsFolder: './src/js/',
         svgicons: './src/img/icons/*.svg'
